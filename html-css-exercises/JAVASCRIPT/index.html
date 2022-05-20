@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lection 1: HTML Basics</title>
+    <!-- FONTS -->
+    
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <style>
+        body {
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body style="background-color: tomato;">
+    <header class="main-header">
+        <div class="cloud"></div>
+        <!-- <nav>
+            <a href="index.html">Home</a>
+            <a href="./views/about.html">About</a>
+            <a href="./views/contacts.html">Contacts</a>
+            <a href="https://online.advanceacademy.bg/login"  target="_blank">Advanceacademy</a>
+        </nav> -->
+        <nav id="main-navigation" class="main-navigation">
+            <div>
+                <a href="index.html">
+                    <img 
+                        width="70px"
+                        src="https://logoeps.com/wp-content/uploads/2014/09/37150-apple-logo-icon-vector-icon-vector-eps.png" alt="">
+                </a>
+            </div>
+            <div>
+                <a href="index.html">Home</a>
+                <a href="#about-section">About</a>
+                <a href="#contacts-section">Contacts</a>
+                <a href="#galery-section">Galery</a>
+                <a href="https://online.advanceacademy.bg/login"  target="_blank">Advanceacademy</a>
+            </div>
+            
+        </nav>
+        <h1>Hello world</h1>
+        <p>This is my firs HTML lecton</p>
+    </header>
+    <main>
+        <section style="height: 1500px"></section>
+        <!-- section*3>((section>(header>h3)+p)+(section>img)) -->
+        <section>
+            <section style="height: 1500px"></section>
+            <section id="about-section">
+                <header>
+                    <h3>About</h3>
+                </header>
+                <p>Bacon ipsum dolor amet drumstick brisket picanha biltong jerky hamburger beef meatball salami ball tip burgdoggen sirloin pork chicken. Pork loin kevin spare ribs, chicken swine jerky chislic fatback. Sausage doner prosciutto beef chislic. Jerky tri-tip cupim filet mignon ground round, kevin shankle pig ham hock chislic kielbasa landjaeger sausage fatback. Tail beef ribs ground round kielbasa venison drumstick corned beef. Tri-tip landjaeger spare ribs shank capicola ground round short loin drumstick biltong swine turkey pork hamburger.
+
+                    Strip steak bacon pig shoulder brisket jerky. Spare ribs cow leberkas picanha ball tip burgdoggen. Meatloaf picanha ham swine. Brisket strip steak boudin kielbasa short ribs, filet mignon turkey cow burgdoggen fatback spare ribs landjaeger hamburger flank. Sirloin tail porchetta bresaola prosciutto t-bone venison beef tri-tip kielbasa buffalo biltong strip steak meatball shank. Swine picanha flank bresaola short loin, shank boudin sausage kielbasa chuck drumstick meatball tongue prosciutto.
+                    
+                    Shankle chislic swine beef ribs ground round shoulder ham hock burgdoggen. Pork burgdoggen shankle chislic short ribs tri-tip ground round jowl. Venison ball tip ribeye, drumstick short loin brisket chicken tri-tip. Pork belly venison beef ribs rump chislic meatball, prosciutto kevin andouille. Capicola jerky chislic short loin beef brisket. Cupim ground round hamburger corned beef flank alcatra meatball swine strip steak porchetta pig sausage turducken. Filet mignon pork beef ribs boudin short loin meatloaf venison ham hock.</p>
+            </section>
+            <section>
+                <figure>
+                    <img src="./assets/images/image.jpg" alt="Building" width="150">
+                    <figcaption>Fig. 1 - Cathedral</figcaption>
+                </figure>
+               
+                <details open>
+                    <summary>FAQ</summary>
+                    <ul>
+                        <li>u list 1</li>
+                        <li>u list 2</li>
+                        <li>u list 3</li>
+                    </ul>
+
+                    <ol>
+                        <li>o list 1</li>
+                        <li>o list 2</li>
+                        <li>o list 3</li>
+                    </ol>
+                </details>
+
+                <!-- HTML MODAL -->
+                <dialog open>
+                    <ul>
+                        <li>u list 1</li>
+                        <li>u list 2</li>
+                        <li>u list 3</li>
+                    </ul>
+
+                    <ol>
+                        <li>o list 1</li>
+                        <li>o list 2</li>
+                        <li>o list 3</li>
+                    </ol>
+                </dialog>
+            </section>
+        </section>
+        <section>
+            <section style="height: 1500px"></section>
+            <section id="contacts-section">
+                <header>
+                    <h3>Contacts</h3>
+                </header>
+               <p>
+                Bacon ipsum dolor amet drumstick brisket picanha biltong jerky hamburger beef meatball salami ball tip burgdoggen sirloin pork chicken. Pork loin kevin spare ribs, chicken swine jerky chislic fatback. Sausage doner prosciutto beef chislic. Jerky tri-tip cupim filet mignon ground round, kevin shankle pig ham hock chislic kielbasa landjaeger sausage fatback. Tail beef ribs ground round kielbasa venison drumstick corned beef. Tri-tip landjaeger spare ribs shank capicola ground round short loin drumstick biltong swine turkey pork hamburger.
+               </p> 
+
+               <p>
+                Strip steak bacon pig shoulder brisket jerky. Spare ribs cow leberkas picanha ball tip burgdoggen. Meatloaf picanha ham swine. Brisket strip steak boudin kielbasa short ribs, filet mignon turkey cow burgdoggen fatback spare ribs landjaeger hamburger flank. Sirloin tail porchetta bresaola prosciutto t-bone venison beef tri-tip kielbasa buffalo biltong strip steak meatball shank. Swine picanha flank bresaola short loin, shank boudin sausage kielbasa chuck drumstick meatball tongue prosciutto.
+               </p>
+
+               <p>
+                Shankle chislic swine beef ribs ground round shoulder ham hock burgdoggen. Pork burgdoggen shankle chislic short ribs tri-tip ground round jowl. Venison ball tip ribeye, drumstick short loin brisket chicken tri-tip. Pork belly venison beef ribs rump chislic meatball, prosciutto kevin andouille. Capicola jerky chislic short loin beef brisket. Cupim ground round hamburger corned beef flank alcatra meatball swine strip steak porchetta pig sausage turducken. Filet mignon pork beef ribs boudin short loin meatloaf venison ham hock.
+               </p>
+
+            </section>
+            <section>
+                <!-- TABLE -->
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th colspan="2" rowspan="2">th 1</th>
+                            <th rowspan="2">th 2</th>
+                            <th colspan="2">measure</th>
+                            <th rowspan="2">th 2</th>
+                            <th rowspan="2">th 2</th>
+                        </tr>
+                        <tr>
+                            <th>l</th>
+                            <th>kg/g</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>content row 1</td>
+                            <td>content row 1</td>
+                            <td>content row 1</td>
+                            <td>content row 1</td>
+                            <td>content row 1</td>
+                            <td>content row 1</td>
+                            <td>content row 1</td>
+                        </tr>
+                        <tr>
+                            <td>content row 2</td>
+                            <td>content row 2</td>
+                            <td>content row 2</td>
+                            <td>content row 2</td>
+                            <td>content row 1</td>
+                            <td>content row 2</td>
+                            <td>content row 1</td>
+                        </tr>
+                        <tr>
+                            <td>content row 3</td>
+                            <td>content row 1</td>
+                            <td>content row 3</td>
+                            <td>content row 3</td>
+                            <td>content row 3</td>
+                            <td>content row 3</td>
+                            <td>content row 1</td>
+                        </tr>
+                        <tr>
+                            <td>content row 4</td>
+                            <td>content row 1</td>
+                            <td>content row 4</td>
+                            <td>content row 4</td>
+                            <td>content row 4</td>
+                            <td>content row 1</td>
+                            <td>content row 4</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>content foot 5</th>
+                            <td>content row 1</td>
+                            <th>content foot 5</th>
+                            <td>content row 1</td>  
+                            <th>content foot 5</th>
+                            <th>content foot 5</th>
+                            <th>content foot 5</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </section>
+        </section>
+        <section>
+            <section style="height: 1500px"></section>
+            <section  id="galery-section">
+                <header>
+                    <h3>Galery</h3>
+                </header>
+               <p>
+                Shankle chislic swine beef ribs ground round shoulder ham hock burgdoggen. Pork burgdoggen shankle chislic short ribs tri-tip ground round jowl. Venison ball tip ribeye, drumstick short loin brisket chicken tri-tip. Pork belly venison beef ribs rump chislic meatball, prosciutto kevin andouille. Capicola jerky chislic short loin beef brisket. Cupim ground round hamburger corned beef flank alcatra meatball swine strip steak porchetta pig sausage turducken. Filet mignon pork beef ribs boudin short loin meatloaf venison ham hock.
+               </p> 
+
+               <p>
+                Shankle chislic swine beef ribs ground round shoulder ham hock burgdoggen. Pork burgdoggen shankle chislic short ribs tri-tip ground round jowl. Venison ball tip ribeye, drumstick short loin brisket chicken tri-tip. Pork belly venison beef ribs rump chislic meatball, prosciutto kevin andouille. Capicola jerky chislic short loin beef brisket. Cupim ground round hamburger corned beef flank alcatra meatball swine strip steak porchetta pig sausage turducken. Filet mignon pork beef ribs boudin short loin meatloaf venison ham hock.
+               </p> 
+
+               <p>
+                Shankle chislic swine beef ribs ground round shoulder ham hock burgdoggen. Pork burgdoggen shankle chislic short ribs tri-tip ground round jowl. Venison ball tip ribeye, drumstick short loin brisket chicken tri-tip. Pork belly venison beef ribs rump chislic meatball, prosciutto kevin andouille. Capicola jerky chislic short loin beef brisket. Cupim ground round hamburger corned beef flank alcatra meatball swine strip steak porchetta pig sausage turducken. Filet mignon pork beef ribs boudin short loin meatloaf venison ham hock.
+               </p> 
+            </section>
+            <section>
+                <form>
+                    <div>
+                        <label for="fullName">Full name</label>
+                        <input type="text" id="fullName" placeholder="full name" minlength="15" maxlength="30">
+                    </div>
+
+                    <!-- div>(label+input:email) -->
+                    <div>
+                        <label for="">Email</label>
+                        <input type="email" name="" id="">
+                    </div>
+                    <div>
+                        <p>Sex</p>
+                        
+                        <input type="radio" name="sex" id="male">
+                        <label for="male">Male</label>
+                        <br/>
+                        <input type="radio" name="sex" id="female">
+                        <label for="female">Female</label>
+                        <br/>
+                        <input type="radio" name="sex" id="neutral">
+                        <label for="neutral">Neutral</label>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
+        </section>
+    </main>
+</body>
+</html>
