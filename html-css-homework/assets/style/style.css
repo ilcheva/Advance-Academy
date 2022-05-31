@@ -9,29 +9,37 @@
 /* .text {
     background-color: #7ead39;
 } */
+span {
+    font-weight: 700;
+}
 .btn {
     background-color: #7ead39;
     color: #ffffff;
-    padding: 10px 20px;
-    border: 1px solid;
-    text-transform: uppercase;
-
     font-weight: 700;
-    font-size: 15px;
+    padding: 12px 23px;
 }
 .btn-secondary {
+    padding: 12px 50px;
     background-color: #ffffff;
-    padding: 10px 20px;
-    letter-spacing: 1px;
-    border: 1px solid #ffffff;
-    text-transform: uppercase;
     font-weight: 800;
-    font-size: 15px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 .btn,
+.shop-now,
+.btn-secondary {
+    text-transform: uppercase;
+    font-size: 15px;
+    border: none;
+}
 .shop-now {
     letter-spacing: 1px;
+}
+
+.latest-products,
+.latest-product-card,
+.banners,
+.footer {
+    display: flex;
 }
 .contacts {
     display: flex;
@@ -141,10 +149,21 @@
 .search-bar {
     border: 1px solid #f5f5f5;
     padding: 0 0 0 20px;
+    font-weight: 800;
 }
 .search-bar input {
     border: none;
-    padding: 0 60px 0 20px;
+    border-left: 1px solid #dddddd;
+    padding: 0 200px 0 10px;
+}
+.search-bar a {
+    text-decoration: none;
+    color: #252525;
+    padding-right: 10px;
+}
+.search-bar i {
+    font-size: 12px;
+    padding-left: 30px;
 }
 .hero {
     margin: 20px 100px 20px 370px;
@@ -152,16 +171,35 @@
     position: relative;
 }
 .hero img {
+    max-width: 100%;
+    max-height: 100%;
     top: 0;
-    left: 100%;
+    /* left: 100%; */
     transform: translate(50%, 0%);
 }
 .hero-text {
-    text-align: center;
+    text-align: left;
     position: absolute;
     top: 50%;
     left: 20%;
     transform: translate(-50%, -50%);
+}
+.hero-text h4 {
+    font-size: 1rem;
+    color: #7ead39;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+.hero-text h1 {
+    font-size: 2.6rem;
+    font-weight: 800;
+    line-height: normal;
+    margin: 15px 0;
+}
+.hero-text p {
+    font-size: 1rem;
+    color: #827070;
+    margin-bottom: 30px;
 }
 .categories-vertical {
     display: flex;
@@ -198,6 +236,13 @@
 .featured-products-title {
     text-align: center;
 }
+.featured-products-title::after {
+    position: relative;
+    top: 10px;
+    bottom: 10px;
+    left: 0px;
+    border-bottom: 2px solid #7ead39;
+}
 .featured-products-list {
     display: flex;
     justify-content: center;
@@ -205,14 +250,14 @@
 }
 .featured-products-list li {
     list-style: none;
+    padding: 0px 50px;
 }
 .featured-products-list a {
     text-decoration: none;
     color: black;
-    padding: 50px;
 }
 .featured-products-list a:hover {
-    text-underline-offset: 20%;
+    text-underline-offset: 30%;
     text-decoration-line: underline;
     text-decoration-thickness: 2px;
     text-decoration-color: #7ead39;
@@ -229,6 +274,9 @@
     flex-direction: column;
     align-items: center;
 }
+.product-price {
+    font-weight: 700;
+}
 .img {
     display: flex;
     justify-content: center;
@@ -241,10 +289,27 @@
     object-fit: contain;
     width: 75%;
 }
-.banner img {
-    width: 100px;
+.banners {
+    justify-content: space-evenly;
 }
-
+.first-banner {
+    width: 500px;
+    background-color: #cfefea;
+    position: relative;
+}
+.second-banner {
+    width: 500px;
+    background-color: #f8ebcb;
+    position: relative;
+}
+.banner-text {
+    position: absolute;
+    transform: translate(80%, -150%);
+}
+.banners img {
+    position: relative;
+    width: 150px;
+}
 .img-small {
     display: flex;
     justify-content: center;
@@ -252,23 +317,26 @@
     width: 120px;
     height: 120px;
 }
-.latest-products,
-.latest-product-card,
-.banners,
+
 .articles {
     display: flex;
-}
-
-.footer {
-    background-color: #f5f5f5;
+    justify-content: space-between;
+    margin: 0px 100px;
 }
 .blog {
     flex-direction: row;
 }
 .blog-article {
     width: 250px;
-    height: 250px;
+    margin-bottom: 10px;
 }
 .blog-article img {
     width: 100%;
+}
+.blog-article-text {
+    /* white-space: nowrap; */
+    text-overflow: ellipsis;
+}
+.footer {
+    background-color: #f5f5f5;
 }
