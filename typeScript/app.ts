@@ -82,3 +82,17 @@ function getFullName(person: Person) {
 getFullName({ firstName: 'sylvia', lastName: 'stancheva' })
 
 // if typescript is locally npx tsc .ts
+
+
+// Boolean(true) = 1
+// Boolean(false) = 0
+// 1 < 2 < 3 => 1<3 => 1 => true
+// 0 < 1 < 2  => true true
+// 0 > 1 > 2 => false
+// 0 > 1 < 2 => 0 < 2 true
+
+// ??
+
+
+// person.department?.name = 'Finances' working in react
+//person.(department || {}).name = 'finances'

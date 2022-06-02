@@ -24,6 +24,17 @@ span {
     font-weight: 800;
     letter-spacing: 2px;
 }
+.shop-now-secondary {
+    color: #ffffff;
+    border: none;
+    text-transform: uppercase;
+    padding: 9px 12px;
+    background-color: #dc3731;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    font-size: 12px;
+}
 .btn,
 .shop-now,
 .btn-secondary {
@@ -165,17 +176,31 @@ span {
     font-size: 12px;
     padding-left: 30px;
 }
+.phone-call {
+    display: flex;
+}
+.phone-call i {
+    padding: 5px 20px;
+    border: 1px solid black;
+    border-radius: 100%;
+}
+.phone-call-text {
+    text-align: right;
+}
 .hero {
+    height: 400px;
     margin: 20px 100px 20px 370px;
     background-color: #f5f5f5;
     position: relative;
 }
-.hero img {
-    max-width: 100%;
+.hero-img {
+    /* max-width: 100%; */
     max-height: 100%;
-    top: 0;
-    /* left: 100%; */
-    transform: translate(50%, 0%);
+    top: 40px;
+    transform: translate(45%, 0%);
+}
+.hero-img img {
+    width: 50%;
 }
 .hero-text {
     text-align: left;
@@ -233,8 +258,10 @@ span {
     top: 85%;
     transform: translate(0, -50%);
 }
-.featured-products-title {
+.featured-products-title,
+.blog > h3 {
     text-align: center;
+    font-size: 2.5rem;
 }
 .featured-products-title::after {
     position: relative;
@@ -247,10 +274,13 @@ span {
     display: flex;
     justify-content: center;
     padding: 20px 0px;
+    margin-bottom: 30px;
 }
 .featured-products-list li {
     list-style: none;
-    padding: 0px 50px;
+    padding: 0px 30px;
+    font-size: 1.1rem;
+    font-weight: 500;
 }
 .featured-products-list a {
     text-decoration: none;
@@ -290,7 +320,8 @@ span {
     width: 75%;
 }
 .banners {
-    justify-content: space-evenly;
+    justify-content: space-between;
+    margin: 50px 100px;
 }
 .first-banner {
     width: 500px;
@@ -306,6 +337,7 @@ span {
     position: absolute;
     transform: translate(80%, -150%);
 }
+
 .banners img {
     position: relative;
     width: 150px;
@@ -317,7 +349,36 @@ span {
     width: 120px;
     height: 120px;
 }
-
+.latest-products {
+    justify-content: space-between;
+    margin: 0px 100px 20px 100px;
+}
+.latest-products-section-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.latest-products-section-title a {
+    text-decoration: none;
+    color: #252525;
+}
+.latest-products-section-title h4 {
+    font-weight: 800;
+    font-size: 1.3rem;
+}
+.latest-products-section-title i {
+    font-size: 10px;
+    padding: 7px 10px;
+    background-color: #dddddd;
+    border: 1px solid #f5f5f5;
+}
+.latest-product-card {
+    margin-bottom: 20px;
+    margin-right: 50px;
+}
+.latest-product-card-text {
+    margin-left: 20px;
+}
 .articles {
     display: flex;
     justify-content: space-between;
@@ -326,17 +387,98 @@ span {
 .blog {
     flex-direction: row;
 }
+.blog h3 {
+    text-align: center;
+    margin: 20px;
+}
 .blog-article {
-    width: 250px;
-    margin-bottom: 10px;
+    width: 350px;
+    margin: 30px 0;
 }
 .blog-article img {
     width: 100%;
 }
+.published-date {
+    color: #b6bbbc;
+    margin: 20px 0 15px 0;
+}
+.blog-article-title {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
 .blog-article-text {
     /* white-space: nowrap; */
     text-overflow: ellipsis;
+    color: #827070;
+    margin: 10px 0;
 }
 .footer {
     background-color: #f5f5f5;
+    padding: 50px 100px;
+    justify-content: space-between;
+}
+.useful-links h5,
+.subscription h5 {
+    font-size: 1rem;
+    padding-bottom: 10px;
+}
+.useful-links-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.useful-links-items li,
+a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #252525;
+    text-decoration: none;
+    list-style: none;
+    padding: 5px 0;
+}
+.useful-links-items {
+    padding-right: 30px;
+}
+address {
+    font-style: normal;
+}
+.subscription input {
+    padding: 10px 0px 10px 10px;
+    border: none;
+    /* border: 1px solid #f5f5f5; */
+}
+.subscription p {
+    font-size: 0.9rem;
+}
+.email-subscription {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border: 1px solid #b6bbbc;
+    margin-top: 20px;
+}
+.main-adress address,
+p,
+a {
+    font-size: 1rem;
+    padding: 5px 0;
+}
+.socials {
+    margin-top: 30px;
+}
+.socials i {
+    border: 1px solid #b6bbbc;
+    background: #ffffff;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px;
+    vertical-align: middle;
+}
+.socials a {
+    margin: 5px;
+}
+.socials a:first-child {
+    margin-left: 0;
 }

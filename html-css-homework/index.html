@@ -120,8 +120,10 @@
                 </div>
                 <div class="phone-call">
                     <i class="fa-solid fa-phone"></i>
-                    +65 11.188.888
-                    <p>support 24/7 time</p>
+                    <p class="phone-call-text">
+                        <span> +65 11.188.888 </span> <br />
+                        support 24/7 time
+                    </p>
                 </div>
             </section>
             <section class="hero">
@@ -134,7 +136,9 @@
                     <p>Free Pickup and Delivery Available</p>
                     <button class="btn shop-now">Shop now</button>
                 </div>
-                <img src="./assets/images/vegetables.png" alt="" />
+                <div class="hero-img">
+                    <img src="./assets/images/vegetables.png" alt="" />
+                </div>
             </section>
             <section class="categories-vertical">
                 <a href="">
@@ -170,6 +174,7 @@
                     <li><a href="">All</a></li>
                     <li><a href="">Oranges</a></li>
                     <li><a href="">Fresh Meat</a></li>
+                    <li><a href="">Vegetables</a></li>
                     <li><a href="">Fastfood</a></li>
                 </ul>
                 <section class="featured-products-cards">
@@ -237,7 +242,7 @@
                     <div class="banner-text">
                         <h4>Summer Fruit</h4>
                         <p>100% Pure natural Fruit Juice</p>
-                        <button>Shop now</button>
+                        <button class="shop-now-secondary">Shop now</button>
                     </div>
                 </div>
                 <div class="second-banner">
@@ -248,19 +253,23 @@
                     <div class="banner-text">
                         <h4>Summer Fruit</h4>
                         <p>100% Pure natural Fruit Juice</p>
-                        <button class="btn-secondary">Shop now</button>
+                        <button class="shop-now-secondary">Shop now</button>
                     </div>
                 </div>
             </section>
             <section class="latest-products">
                 <section class="latest-products-list">
-                    <h4>
-                        Latest Products
-                        <i class="fa-solid fa-chevron-left"></i>
-                        <a href=""></a>
-                        <i class="fa-solid fa-chevron-right"></i>
-                        <a href=""></a>
-                    </h4>
+                    <div class="latest-products-section-title">
+                        <h4>Latest Products</h4>
+                        <div class="latest-products-nav">
+                            <a href="">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
                     <div class="latest-product-card">
                         <div class="img-small">
                             <img src="assets/images/spinach.png" alt="" />
@@ -290,11 +299,18 @@
                     </div>
                 </section>
                 <section class="latest-products-list">
-                    <h4>Top Rated Products</h4>
-                    <i class="fa-solid fa-chevron-left"></i>
-                    <a href=""></a>
-                    <i class="fa-solid fa-chevron-right"></i>
-                    <a href=""></a>
+                    <div class="latest-products-section-title">
+                        <h4>Top Rated Products</h4>
+
+                        <div class="latest-products-nav">
+                            <a href="">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
                     <div class="latest-product-card">
                         <div class="img-small">
                             <img src="assets/images/spinach.png" alt="" />
@@ -324,11 +340,17 @@
                     </div>
                 </section>
                 <section class="latest-products-list">
-                    <h4>Review Products</h4>
-                    <i class="fa-solid fa-chevron-left"></i>
-                    <a href=""></a>
-                    <i class="fa-solid fa-chevron-right"></i>
-                    <a href=""></a>
+                    <div class="latest-products-section-title">
+                        <h4>Review Products</h4>
+                        <div class="latest-products-nav">
+                            <a href="">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
                     <div class="latest-product-card">
                         <div class="img-small">
                             <img src="assets/images/spinach.png" alt="" />
@@ -444,41 +466,47 @@
             </section>
             <section class="useful-links">
                 <h5>Useful Links</h5>
-                <ul>
-                    <li><a href="">About us</a></li>
-                    <li><a href="">About Our Shop</a></li>
-                    <li><a href="">Secure Shopping</a></li>
-                    <li><a href="">Delivery Information</a></li>
-                    <li><a href="">Privacy Policy</a></li>
-                    <li><a href="">Our Sitemap</a></li>
-                    <li><a href="">Who we are</a></li>
-                    <li><a href="">Our Services</a></li>
-                    <li><a href="">Projects</a></li>
-                    <li><a href="">Contact</a></li>
-                    <li><a href="">Innovation</a></li>
-                    <li><a href="">Testimonials</a></li>
-                </ul>
+                <div class="useful-links-list">
+                    <ul class="useful-links-items">
+                        <li><a href="">About us</a></li>
+                        <li><a href="">About Our Shop</a></li>
+                        <li><a href="">Secure Shopping</a></li>
+                        <li><a href="">Delivery Information</a></li>
+                        <li><a href="">Privacy Policy</a></li>
+                        <li><a href="">Our Sitemap</a></li>
+                    </ul>
+                    <ul class="useful-links-items">
+                        <li><a href="">Who we are</a></li>
+                        <li><a href="">Our Services</a></li>
+                        <li><a href="">Projects</a></li>
+                        <li><a href="">Contact</a></li>
+                        <li><a href="">Innovation</a></li>
+                        <li><a href="">Testimonials</a></li>
+                    </ul>
+                </div>
             </section>
             <section class="subscription">
                 <h5>Join Our Newsletter Now</h5>
                 <p>
                     Get E-mail updates about our latest shop and special offers.
                 </p>
-                <input
-                    type="text"
-                    name="subscription"
-                    placeholder="Enter your mail"
-                />
-                <button>subscribe</button>
+                <div class="email-subscription">
+                    <input
+                        type="text"
+                        name="subscription"
+                        placeholder="Enter your mail"
+                    />
+                    <button class="btn">subscribe</button>
+                </div>
                 <div class="socials">
                     <a href="">
                         <i class="fa-brands fa-facebook-f"></i>
                     </a>
                     <a href="">
-                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-instagram"></i>
                     </a>
                     <a href="">
-                        <i class="fa-brands fa-linkedin-in"></i>
+                        <i class="fa-brands fa-twitter"></i>
                     </a>
                     <a href="">
                         <i class="fa-brands fa-pinterest-p"></i>
