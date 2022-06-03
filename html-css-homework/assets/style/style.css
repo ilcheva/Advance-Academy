@@ -85,6 +85,7 @@ span {
 .mail-contacts {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 .mail-contacts a {
     padding-right: 10px;
@@ -114,9 +115,7 @@ span {
     align-items: center;
 }
 .navigantion-links a {
-    /* text-transform: capitalize; */
     text-transform: uppercase;
-
     text-decoration: none;
     font-weight: 800;
     font-size: 15px;
@@ -129,6 +128,33 @@ span {
 }
 .navigation-shopping {
     display: flex;
+}
+.navigation-shopping i {
+    margin: 0 10px;
+}
+.shopping-icons {
+    position: relative;
+}
+.shopping-icons:last-of-type {
+    margin-right: 15px;
+}
+.shopping-number {
+    position: absolute;
+    z-index: 1;
+    top: -3px;
+    left: 21px;
+    font-size: 10px;
+    background-color: #7ead39;
+    color: #ffffff;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    line-height: 12px;
+    vertical-align: middle;
+    text-align: center;
+}
+.nav-price {
+    font-size: 13px;
 }
 .side-navigation {
     margin-left: 100px;
@@ -178,14 +204,27 @@ span {
 }
 .phone-call {
     display: flex;
+    align-items: center;
 }
 .phone-call i {
-    padding: 5px 20px;
-    border: 1px solid black;
-    border-radius: 100%;
+    color: #7ead39;
+    font-size: 15px;
+    background: #f5f5f5;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 45px;
+    vertical-align: middle;
 }
 .phone-call-text {
     text-align: right;
+    margin-left: 15px;
+    font-size: 15px;
+    font-size: 13px;
+}
+.phone-call-text span {
+    font-size: 18px;
 }
 .hero {
     height: 400px;
@@ -263,12 +302,18 @@ span {
     text-align: center;
     font-size: 2.5rem;
 }
-.featured-products-title::after {
+.featured-products-title {
     position: relative;
-    top: 10px;
-    bottom: 10px;
-    left: 0px;
-    border-bottom: 2px solid #7ead39;
+}
+.featured-products-title::after {
+    content: "";
+    position: absolute;
+    border-top: 3px solid #7ead39;
+    left: 50%;
+    bottom: -5px;
+    margin-left: -25px;
+    width: 70px;
+    height: 0px;
 }
 .featured-products-list {
     display: flex;
@@ -313,6 +358,7 @@ span {
     background-color: #f5f5f5;
     width: 250px;
     height: 250px;
+    margin-bottom: 10px;
 }
 .img img,
 .img-small img {
@@ -320,27 +366,38 @@ span {
     width: 75%;
 }
 .banners {
-    justify-content: space-between;
+    justify-content: space-around;
     margin: 50px 100px;
 }
 .first-banner {
     width: 500px;
+    height: 200px;
     background-color: #cfefea;
     position: relative;
 }
 .second-banner {
     width: 500px;
+    height: 200px;
     background-color: #f8ebcb;
     position: relative;
 }
 .banner-text {
     position: absolute;
-    transform: translate(80%, -150%);
+    top: 40%;
+    transform: translate(120%, -40%);
+}
+.banner-text h4 {
+    font-size: 1.8rem;
+}
+.banner-text p {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
 }
 
 .banners img {
     position: relative;
     width: 150px;
+    transform: translate(20%, 10%);
 }
 .img-small {
     display: flex;
@@ -369,8 +426,9 @@ span {
 .latest-products-section-title i {
     font-size: 10px;
     padding: 7px 10px;
-    background-color: #dddddd;
-    border: 1px solid #f5f5f5;
+    background-color: #f5f5f5;
+    border: 1px solid #dddddd;
+    border-radius: 2px;
 }
 .latest-product-card {
     margin-bottom: 20px;
@@ -390,6 +448,17 @@ span {
 .blog h3 {
     text-align: center;
     margin: 20px;
+    position: relative;
+}
+.blog h3::after {
+    content: "";
+    position: absolute;
+    border-top: 3px solid #7ead39;
+    left: 50%;
+    bottom: -5px;
+    margin-left: -25px;
+    width: 70px;
+    height: 0px;
 }
 .blog-article {
     width: 350px;
@@ -406,6 +475,7 @@ span {
     font-weight: 700;
     font-size: 1.2rem;
 }
+
 .blog-article-text {
     /* white-space: nowrap; */
     text-overflow: ellipsis;
@@ -458,8 +528,8 @@ address {
     margin-top: 20px;
 }
 .main-adress address,
-p,
-a {
+.main-adress p,
+.main-adress a {
     font-size: 1rem;
     padding: 5px 0;
 }
