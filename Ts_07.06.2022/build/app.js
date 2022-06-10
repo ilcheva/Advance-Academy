@@ -178,11 +178,12 @@ function PersonFn(name) {
     };
     return person;
 }
-PersonFn.prototype.greet = function () {
+PersonFn.prototype.greet = function (name) {
     return `Hi. My name is ${this.name}`;
 };
 let newName = PersonFn('Silvya');
 let result = newName.greet;
 // console.log(PersonFn.prototype.constructor);
-// console.log(result);
+console.log(newName);
+console.log(result);
 // console.log(newName.greet());

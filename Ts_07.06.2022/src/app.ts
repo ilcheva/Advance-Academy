@@ -245,7 +245,7 @@ console.log(Object.prototype.constructor === Object);
 
 interface PersonFnInterface {
     name: string;
-    greet?: () => void;
+    greet?(): void;
 
 }
 function PersonFn(name: string) {
@@ -254,12 +254,14 @@ function PersonFn(name: string) {
     }
     return person
 }
-PersonFn.prototype.greet = function () {
+PersonFn.prototype.greet = function (name: string) {
     return `Hi. My name is ${this.name}`
 }
 let newName = PersonFn('Silvya');
 let result = newName.greet
 // console.log(PersonFn.prototype.constructor);
+console.log(newName);
+
 // console.log(result);
 
 // console.log(newName.greet());
