@@ -185,5 +185,5 @@ let newName = PersonFn('Silvya');
 let result = newName.greet;
 // console.log(PersonFn.prototype.constructor);
 console.log(newName);
-console.log(result);
+// console.log(result);
 // console.log(newName.greet());

@@ -2,7 +2,7 @@
   "name": "ts_07.06.2022",
   "version": "1.0.0",
   "description": "",
-  "main": "homework.ts",
+  "main": "app.ts",
   "scripts": {
     "start:build": "tsc -w",
     "start:run": "nodemon build/app.js",
