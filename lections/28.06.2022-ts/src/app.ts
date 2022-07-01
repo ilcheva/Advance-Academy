@@ -49,4 +49,31 @@ document.querySelector("#comment")?.addEventListener('keypress', (e: Event) => {
         : (document.querySelector("#comment ~ small") as HTMLElement).innerHTML = 'Your comment can\'t be more than ten symbols'
 })
 
-/// FORM EVENTS 
+/// FORM EVENTS  ==> blur, change, submit, focus
+// change only for selectors
+
+let form = document.querySelector("[name='testForm']")
+let sameNames = Array.from(document.getElementsByTagName('testPassword'));
+//аупционно число?
+// sameNames[0].addEventListener('blur', (e) => {
+//     let target = e.target as HTMLInputElement;
+//     (document.querySelector('form + p') as HTMLElement).innerHTML = target.value;
+// })
+
+function getSelectedValue(el: HTMLSelectElement) {
+    alert(el.value)
+}
+//DOM
+
+// (document.querySelector('.list') as HTMLElement).style.backgroundColor = 'red';
+// (document.querySelector('.list') as HTMLElement).style.opacity = '0.5';
+
+Array.from(document.querySelectorAll(".list")).forEach((el: any) => {
+    el.style.backgroundColor = 'rgba(112,111,233,0.5)';
+
+
+});
+(document.querySelector('.list .paragraph:nth-of-type(4)') as HTMLElement).style.color = 'blue';
+
+
+/// втори и предпоследен различен текст 

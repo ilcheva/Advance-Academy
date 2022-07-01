@@ -34,6 +34,7 @@ function urlParser(protocol: string[], server: string[], resource: string[]) {
     }
 
     return urlStrings;
+    
 }
 console.log(urlParser(['http', 'https'], ['192.168.0.1', 'localhost'], ['index.html', 'page.html']));
 

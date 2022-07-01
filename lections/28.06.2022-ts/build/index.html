@@ -19,22 +19,71 @@
         <div>
             <input type="text" />
             <br />
-            <small style=" color: red"></small>
+            <small style="color: red"></small>
         </div>
-        <br>
-        <br>
+        <br />
+        <br />
         <div>
-            <textarea name="" id="comment" cols="30" rows="10" maxlength="10"></textarea>
-            <small style=" color: red"></small>
-            <hr>
+            <textarea
+                name=""
+                id="comment"
+                cols="30"
+                rows="10"
+                maxlength="10"
+            ></textarea>
+            <small style="color: red"></small>
+            <hr />
 
-            <form action="">
-                <input type="text" id="text" placeholder="Write your name">
-                <br><br>
-                <input type="password" name="text" id="" placeholder="Passowrd">
-                <br><br>
-                <button>click</button>
+            <form action="" name="testForm">
+                <input
+                    type="text"
+                    id="textName"
+                    placeholder="Write your name"
+                />
+                <br /><br />
+                <input
+                    type="password"
+                    name="testPassword"
+                    id=""
+                    placeholder="Password"
+                />
+                <input
+                    type="password"
+                    name="testPassword"
+                    id=""
+                    placeholder="Test"
+                />
+                <input
+                    type="email"
+                    name="email"
+                    id=""
+                    placeholder="email"
+                />
+                <br /><br />
+                <select name="" id="" onchange="getSelectedValue(this)">
+                    <option value="EN">English</option>
+                    <option value="BG">Български</option>
+                    <option value="IT">Italian</option>
+                </select>
+                <button type="reset">Reset</button>
+                <button type="submit">Submit</button>
             </form>
+            <p></p>
+        </div>
+        <!-- DOM -->
+        <div class="list">
+            <p class="paragraph">p1</p>
+            <p class="paragraph">p2</p>
+            <p class="paragraph">p3</p>
+            <p class="paragraph">p4</p>
+            <p class="paragraph">p5</p>
+        </div>
+        <div class="list">
+            <p class="paragraph">p1</p>
+            <p class="paragraph">p2</p>
+            <p class="paragraph">p3</p>
+            <p class="paragraph">p4</p>
+            <p class="paragraph">p5</p>
         </div>
         <script src="app.js"></script>
     </body>
