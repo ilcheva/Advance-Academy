@@ -58,7 +58,6 @@ function globalSearch() {
 
     links.forEach((link) => {
         let textValue = link.innerHTML || link.textContent;
-      
 
         (textValue as string).toLowerCase().indexOf(input.value.toLowerCase() as string) > -1 ?
             (link.parentElement as HTMLElement).style.display = '' :
@@ -66,3 +65,31 @@ function globalSearch() {
 
     })
 }
+function addNewContact() {
+    let li = document.createElement('li');
+    let aLink = document.createElement('a');
+    aLink.setAttribute('href', '#');
+    let contactInput: HTMLInputElement = document.getElementById('addNewContact') as HTMLInputElement;
+    // because we are creating the text - innerHTML is not appropriate
+
+    let content = document.createTextNode(contactInput.value)
+    aLink.appendChild(content)
+    li.appendChild(aLink)
+    content.length !== 0 ? ul.appendChild(li) : alert('You must write a name');
+    contactInput.value = '';
+    // create a button which deletes a created contact
+    let removeContactBtn = document.createElement('button');
+    removeContactBtn.appendChild(document.createTextNode('x'))
+    removeContactBtn.classList.add('removeContact','btn','btn-danger')
+    li.appendChild(removeContactBtn)
+
+    // fetch all buttons with class removeContact
+
+    let removeContactBtns = Array.from(document.getElementsByClassName('removeContact'));
+    removeContactBtns.forEach(button => {
+        button.addEventListener('click', function (this: HTMLElement) {
+            (this.parentElement as HTMLElement).remove()
+        })
+    })
+}
+// clicing on contact to open a modal 

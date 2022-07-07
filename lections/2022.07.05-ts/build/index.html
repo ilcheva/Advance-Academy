@@ -4,48 +4,77 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- CSS only -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+            crossorigin="anonymous" />
+
         <link rel="stylesheet" href="./assets/css/styles.css" />
         <title>Address Book</title>
     </head>
     <body>
+        <div class="container">
+            <div id="sideNav">
+                <nav>
+                    <a href="#">About</a>
+                    <a href="#">Service</a>
+                    <a href="#">Clients</a>
+                    <a href="">Contacts</a>
+                </nav>
+            </div>
+            <div id="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <span
+                            style="
+                                font-size: 30px;
+                                font-weight: bold;
+                                cursor: poiner;
+                            "
+                            onclick="openSideNav()">
+                            &#x2261;
+                        </span>
+                        <header>
+                            <h1>Contact List</h1>
+                        </header>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="from-group">
+                            <input
+                                type="search"
+                                placeholder="Search names in address book"
+                                id="globalSearch"
+                                onkeyup="globalSearch()" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="flex flex-betweeen">
+                            <button
+                                class="btn btn-primary"
+                                onclick="addNewContact()">
+                                Add new contact
+                            </button>
+                            <input type="text" id="addNewContact" />
+                        </div>
+                    </div>
+                </div>
+
+                <ul id="addressBook"></ul>
+            </div>
+        </div>
         <!-- SIDEBAR NAVIGATION -->
-        <div id="sideNav">
-            <nav>
-                <a href="#">About</a>
-                <a href="#">Service</a>
-                <a href="#">Clients</a>
-                <a href="">Contacts</a>
-            </nav>
-        </div>
-        <div id="container">
-            <span
-                style="font-size: 30px; font-weight: bold; cursor: poiner"
-                onclick="openSideNav()"
-            >
-                &#x2261;
-            </span>
-            <header>
-                <h1>Contact List</h1>
-            </header>
-            <input
-                type="search"
-                placeholder="Search names in address book"
-                id="globalSearch"
-                onkeyup="globalSearch()"
-            />
-            <ul id="addressBook">
-                <li><a href="">Anton Vartabedyan</a></li>
-                <li><a href="">Dimityr Trendafilov</a></li>
-                <li><a href="">Dobromir Panov</a></li>
-                <li><a href="">Georgi Georgiev</a></li>
-                <li><a href="">Irena Dobreva</a></li>
-                <li><a href="">Ivan Ivanov</a></li>
-                <li><a href="">Konstantina Mihailova</a></li>
-                <li><a href="">Petur Negoichev</a></li>
-                <li><a href="">Petyr Minev</a></li>
-                <li><a href="">Dragomir Georgiev</a></li>
-            </ul>
-        </div>
+        <!-- JavaScript Bundle with Popper -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+            crossorigin="anonymous"></script>
+
         <script src="app.js"></script>
     </body>
 </html>
