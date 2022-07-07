@@ -1,0 +1,22 @@
+{
+  "name": "typescript-course",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start:build": "tsc -w",
+    "start:run": "nodemon build/app.js",
+    "start": "concurrently npm:start:*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/silviya.stoilova/typescript-course.git"
+  },
+  "bugs": {
+    "url": "https://gitlab.com/silviya.stoilova/typescript-course/issues"
+  },
+  "homepage": "https://gitlab.com/silviya.stoilova/typescript-course#readme",
+  "description": ""
+}

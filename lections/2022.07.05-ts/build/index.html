@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./assets/css/styles.css" />
+        <title>Address Book</title>
+    </head>
+    <body>
+        <!-- SIDEBAR NAVIGATION -->
+        <div id="sideNav">
+            <nav>
+                <a href="#">About</a>
+                <a href="#">Service</a>
+                <a href="#">Clients</a>
+                <a href="">Contacts</a>
+            </nav>
+        </div>
+        <div id="container">
+            <span
+                style="font-size: 30px; font-weight: bold; cursor: poiner"
+                onclick="openSideNav()"
+            >
+                &#x2261;
+            </span>
+            <header>
+                <h1>Contact List</h1>
+            </header>
+            <input
+                type="search"
+                placeholder="Search names in address book"
+                id="globalSearch"
+                onkeyup="globalSearch()"
+            />
+            <ul id="addressBook">
+                <li><a href="">Anton Vartabedyan</a></li>
+                <li><a href="">Dimityr Trendafilov</a></li>
+                <li><a href="">Dobromir Panov</a></li>
+                <li><a href="">Georgi Georgiev</a></li>
+                <li><a href="">Irena Dobreva</a></li>
+                <li><a href="">Ivan Ivanov</a></li>
+                <li><a href="">Konstantina Mihailova</a></li>
+                <li><a href="">Petur Negoichev</a></li>
+                <li><a href="">Petyr Minev</a></li>
+                <li><a href="">Dragomir Georgiev</a></li>
+            </ul>
+        </div>
+        <script src="app.js"></script>
+    </body>
+</html>

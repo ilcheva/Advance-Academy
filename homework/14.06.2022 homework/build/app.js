@@ -1,5 +1,6 @@
 "use strict";
-//Write a function that formats a string using placeholders: let str = stringFormat("Hello {0}!","Peter"); str = "Hello Andrew!";
+//Write a function that formats a string using placeholders: 
+//let str = stringFormat("Hello {0}!","Peter"); str = "Hello Andrew!";
 // The function should work with up to 30 placeholders and all types
 function stringFormat(text, value) {
     // let str = `{0}`;
@@ -8,9 +9,12 @@ function stringFormat(text, value) {
         return 'too many placeholders';
     }
     return `${text.replace(strForReplace, value)}!`;
+    return `${text} ${value}`;
 }
 stringFormat("Hello {0}!", "Peter");
 console.log(stringFormat("Hello {0}!", 10));
+///Идеята е да имаш една променлива примерно string = която да ти съдържа placeholder - те, тази променлива 
+//я подавш към функцията и вече като отделни параметри в самата функция подаваш думите, които да се заместят в текста.
 // Write a JavaScript function that finds how many times a substring is contained in a given text (perform case insensitive search). 
 //(perform case insensitive search). //
 function subString(text, sub) {
