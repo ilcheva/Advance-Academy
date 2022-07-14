@@ -69,6 +69,13 @@ function addNewContact() {
     let li = document.createElement('li');
     let aLink = document.createElement('a');
     aLink.setAttribute('href', '#');
+    aLink.setAttribute('data-bs-toggle', 'modal');
+    aLink.setAttribute('data-bs-target', '#exampleModal');
+
+
+    let userName = document.getElementById('userName');
+    let userPhone = document.getElementById('userPhone');
+
     let contactInput: HTMLInputElement = document.getElementById('addNewContact') as HTMLInputElement;
     // because we are creating the text - innerHTML is not appropriate
 
@@ -80,8 +87,9 @@ function addNewContact() {
     // create a button which deletes a created contact
     let removeContactBtn = document.createElement('button');
     removeContactBtn.appendChild(document.createTextNode('x'))
-    removeContactBtn.classList.add('removeContact','btn','btn-danger')
+    removeContactBtn.classList.add('removeContact', 'btn', 'btn-danger', 'm-1')
     li.appendChild(removeContactBtn)
+
 
     // fetch all buttons with class removeContact
 
@@ -91,7 +99,9 @@ function addNewContact() {
             (this.parentElement as HTMLElement).remove()
         })
     })
-}
-// clicking on contact to open a modal 
 
-//BOM
+    
+
+
+}
+// clicing on contact to open a modal
