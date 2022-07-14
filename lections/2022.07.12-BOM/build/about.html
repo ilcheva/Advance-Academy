@@ -7,7 +7,45 @@
         <title>About</title>
     </head>
     <body>
+        <nav>
+            <a href="./index.html">Home</a>
+            <a href="./about.html">About</a>
+            <a href="./gallery.html">Gallery</a>
+        </nav>
         <h1>About us</h1>
+        <!-- HISTORY -->
+        <button onclick="history.go(-1)">go back</button>
+        <button onclick="history.back()">back</button>
+        <!-- we need to click history.back() for histoy.forward() to work -->
+        <button onclick="history.forward()">forward</button>
+        <button onclick="history.go(1)">go forward</button>
+        <button onclick="alert(history.length)">get history</button>
+        <button onclick="history.go(0)">clear history</button>
+        <br />
+        <hr />
+        <form onsubmit="submitData(event)">
+            <div>
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" />
+            </div>
+            <div>
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" />
+            </div>
+            <div>
+                <label for="userName">Username:</label>
+                <input type="text" id="userName" />
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" />
+            </div>
+            <button type="submit">Save</button>
+        </form>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+            crossorigin="anonymous"></script>
         <script src="app.js"></script>
     </body>
 </html>
