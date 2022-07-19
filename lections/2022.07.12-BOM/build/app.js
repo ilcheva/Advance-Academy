@@ -69,3 +69,33 @@ let data = JSON.parse(userData) || {
 };
 console.log(data.firstName);
 localStorage.removeItem('user');
+//COOKIES
+//  name , value , domain, path, httpOnly, Secure - if checked sending data with SSL to the server 
+//localstorage - 5mb , cookies - 4kb
+// all cookies over 4kb  are not sending data(over 4kb) to the server 
+// no sensitive data in cookies 
+// cookie values can not includes  cyrilyc , empty space, and  ',.'
+// expires seting value - max-age with seconds
+// to get cookie we need a function
+document.cookie = 'userRole= admin;max-age=' + 30 * 24 + 60 + 60;
+document.cookie = 'company=' + encodeURIComponent('Коледен базар') + ";max-age=" + 30 * 24 + 60 + 60;
+document.cookie = 'newState=holiday;expires= Fri, 28 Oct 2022 23:59:59;path=/about.html;domain=127.0.0.1;secure';
+function getCookie(name) {
+    // split cookie to reach all name-value pairs
+    let allCookies = document.cookie.split(';');
+    console.log(allCookies);
+    allCookies.forEach(cookie => {
+        let cookiePair = cookie.indexOf('=') > -1 ? cookie.split('=') : [cookie, ''];
+        if (name === cookiePair[0].trim()) {
+            console.log(decodeURIComponent(cookiePair[1].trim()));
+            return decodeURIComponent(cookiePair[1].trim());
+        }
+    });
+    // return null
+}
+getCookie('company');
+// DELETE company Cookie
+document.cookie = 'company=;max-age=0';
+document.cookie = 'userRole=;expires=Fri, 28 Oct 2019 23:59:59'; // not good - not all data deleted
+// localstorage can only store data only on the browser , cookies are send to the server
+// the user can block cookies, localstorage

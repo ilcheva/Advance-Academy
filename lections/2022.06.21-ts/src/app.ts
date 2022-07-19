@@ -47,9 +47,7 @@ let data: Auto[] = [
     yearOfManufactury: '01-01-2019',
     colors: ['black', 'metalic', 'red', 'white'],
     rentPrice: 600,
-    rentPriceTotal: function (extraFee) {
-      return ((extraFee * this.rentPrice) + this.rentPrice)
-    },
+    e
     rentTimeStart: '03-07-2020',
     rentTimeEnd: '23-07-2020'
 
