@@ -143,17 +143,21 @@ item?.addEventListener('dragstart', dragStart);
 
 function dragStart(e: any) {
     console.log('started');
+
     e.dataTransfer.setData("text/plain", e.target.id);
+
+
+
     setTimeout(() => {
         e.target.classList.add('hide')
-    }, 0)
+    }, 0);
     // setTimeout will start after the event
 }
 boxes.forEach(box => {
-    box.addEventListener('dragenter', dragEnter)
-    box.addEventListener('dragover', dragOver)
-    box.addEventListener('dragleave', dragLeave)
-    box.addEventListener('drop', drop)
+    box.addEventListener('dragenter', dragEnter);
+    box.addEventListener('dragover', dragOver);
+    box.addEventListener('dragleave', dragLeave);
+    box.addEventListener('drop', drop);
 
 });
 
@@ -164,16 +168,25 @@ function dragEnter(e: any) {
 function dragOver(e: any) {
     e.preventDefault();
     e.target.classList.add('drag-over');
+
+
 }
 function dragLeave(e: any) {
     e.target.classList.remove('drag-over');
+
+
 }
 function drop(e: any) {
+    e.preventDefault(); /// not working in mozilla  without this !!!
     e.target.classList.remove('drag-over');
 
     let id = e.dataTransfer.getData("text/plain");
     let dragableItem = document.getElementById(id);
+    console.log(id);
+    console.log(dragableItem);
+
 
     e.target.appendChild(dragableItem);
     dragableItem?.classList.remove('hide');
+
 }   

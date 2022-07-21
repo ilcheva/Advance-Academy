@@ -134,9 +134,12 @@ function dragLeave(e) {
     e.target.classList.remove('drag-over');
 }
 function drop(e) {
+    e.preventDefault(); /// not working in mozilla  without this !!!
     e.target.classList.remove('drag-over');
     let id = e.dataTransfer.getData("text/plain");
     let dragableItem = document.getElementById(id);
+    console.log(id);
+    console.log(dragableItem);
     e.target.appendChild(dragableItem);
     dragableItem === null || dragableItem === void 0 ? void 0 : dragableItem.classList.remove('hide');
 }
