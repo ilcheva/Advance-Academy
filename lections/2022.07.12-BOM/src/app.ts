@@ -122,9 +122,58 @@ getCookie('company')
 // DELETE company Cookie
 
 document.cookie = 'company=;max-age=0';
-document.cookie='userRole=;expires=Fri, 28 Oct 2019 23:59:59' // not good - not all data deleted
+document.cookie = 'userRole=;expires=Fri, 28 Oct 2019 23:59:59' // not good - not all data deleted
 
 
 // localstorage can only store data only on the browser , cookies are send to the server
 // the user can block cookies, localstorage
 
+// DRAG AND DROP 
+// HTML5!!!
+//drag start - event => drag over => event drag end
+//drag enter => drag over => drag leave or drop
+// data transfer object
+// 24.08 and 26.08 no lections
+
+const item = document.getElementById('item');
+const boxes = document.querySelectorAll('.box');
+
+item?.addEventListener('dragstart', dragStart);
+
+
+function dragStart(e: any) {
+    console.log('started');
+    e.dataTransfer.setData("text/plain", e.target.id);
+    setTimeout(() => {
+        e.target.classList.add('hide')
+    }, 0)
+    // setTimeout will start after the event
+}
+boxes.forEach(box => {
+    box.addEventListener('dragenter', dragEnter)
+    box.addEventListener('dragover', dragOver)
+    box.addEventListener('dragleave', dragLeave)
+    box.addEventListener('drop', drop)
+
+});
+
+function dragEnter(e: any) {
+    e.preventDefault();
+    e.target.classList.add('drag-over');
+}
+function dragOver(e: any) {
+    e.preventDefault();
+    e.target.classList.add('drag-over');
+}
+function dragLeave(e: any) {
+    e.target.classList.remove('drag-over');
+}
+function drop(e: any) {
+    e.target.classList.remove('drag-over');
+
+    let id = e.dataTransfer.getData("text/plain");
+    let dragableItem = document.getElementById(id);
+
+    e.target.appendChild(dragableItem);
+    dragableItem?.classList.remove('hide');
+}   
