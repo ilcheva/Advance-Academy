@@ -1,6 +1,6 @@
 "use strict";
 // class Person {
-//     firstName: string;
+//     private firstName: string;
 //     public lastName: string;
 //     protected age: number;
 //     constructor(firstName: string, lastName: string, age: number) {
