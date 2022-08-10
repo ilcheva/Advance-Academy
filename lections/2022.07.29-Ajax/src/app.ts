@@ -307,23 +307,9 @@ let company: Company = {
 
 function totalSalary(department: SalesDepartment) {
     // recursive fn to get total salary sum
-    // console.log(department.salesDepartment.forEach((el:any)=> console.log(el.salary)))
-    if (Array.isArray(department)) { console.log(department) }
-    console.log(Object.keys(department)[0]);
-   let result= department.hasOwnProperty(Object.keys(department)[0])
-    console.log(result);
-    // (department.(Object.keys(department)[0])).forEach( (el:any) => console.log(el)
-    )
-    
-    // department.developmentDepartment.hasOwnProperty('frontEnd')
-    // console.log(department.developmentDepartment.hasOwnProperty('frontEnd'));
+
 
 
 }
-totalSalary(company.developmentDepartment)
-// company.developmentDepartment.frontEnd.forEach(element => {
-//     console.log(element.salary);
 
-// });
-// console.log(Object.keys(company.developmentDepartment));
 
