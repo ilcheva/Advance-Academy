@@ -258,10 +258,10 @@ interface Employee {
     fullName: string,
     salary: number
 }
-interface SalesDepartment {
-    salesDepartment: Employee[];
+type SalesDepartment = Employee[]
 
-}
+
+
 interface DevelopmentDepartment {
     frontEnd: Employee[];
     backEnd: Employee[];
@@ -271,7 +271,7 @@ interface Company {
     developmentDepartment: DevelopmentDepartment
 }
 let company: Company = {
-    salesDepartment:[
+    salesDepartment: [
         {
             fullName: 'John Doe',
             salary: 1000
@@ -305,17 +305,25 @@ let company: Company = {
     }
 }
 
-function totalSalary(department: any) {
+function totalSalary(department: SalesDepartment) {
     // recursive fn to get total salary sum
     // console.log(department.salesDepartment.forEach((el:any)=> console.log(el.salary)))
-   
+    if (Array.isArray(department)) { console.log(department) }
+    console.log(Object.keys(department)[0]);
+   let result= department.hasOwnProperty(Object.keys(department)[0])
+    console.log(result);
+    // (department.(Object.keys(department)[0])).forEach( (el:any) => console.log(el)
+    )
+    
     // department.developmentDepartment.hasOwnProperty('frontEnd')
     // console.log(department.developmentDepartment.hasOwnProperty('frontEnd'));
-    
-    
+
+
 }
-totalSalary(company)
+totalSalary(company.developmentDepartment)
 // company.developmentDepartment.frontEnd.forEach(element => {
 //     console.log(element.salary);
-        
+
 // });
+// console.log(Object.keys(company.developmentDepartment));
+

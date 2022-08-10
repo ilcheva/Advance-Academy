@@ -78,3 +78,12 @@ console.log(text.match(regex1));
 
 
 regex1=/^(.*)(\r?\n\1)+$/
+
+
+
+ let visaRegex =/(^(?:4[0-9]{12}(?:[0-9]{3})?))/gi; // when ? optional operator not 
+// 16 цифри първите 2 51-55 
+// първи 4 2221-2720
+let mastercardRegex=/^5[1-5][0-9]{14}|^2{3}[1-9][0-9]{12}/gi;
+let discoverRegex=/^6(?:011|5[0-9]{2})[0-9]{12}/gi
+

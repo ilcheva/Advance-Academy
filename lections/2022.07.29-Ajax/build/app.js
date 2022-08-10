@@ -238,11 +238,18 @@ let company = {
 };
 function totalSalary(department) {
     // recursive fn to get total salary sum
-    console.log(department.salesDepartment.forEach((el) => console.log(el.salary)));
-    department.developmentDepartment.hasOwnProperty('frontEnd');
-    console.log(department.developmentDepartment.hasOwnProperty('frontEnd'));
+    // console.log(department.salesDepartment.forEach((el:any)=> console.log(el.salary)))
+    if (Array.isArray(department)) {
+        console.log(department);
+    }
+    console.log(Object.keys(department)[0]);
+    let result = department.hasOwnProperty(Object.keys(department)[0]);
+    console.log(result);
+    // department.developmentDepartment.hasOwnProperty('frontEnd')
+    // console.log(department.developmentDepartment.hasOwnProperty('frontEnd'));
 }
-totalSalary(company);
+totalSalary(company.developmentDepartment);
 // company.developmentDepartment.frontEnd.forEach(element => {
 //     console.log(element.salary);
 // });
+// console.log(Object.keys(company.developmentDepartment));
