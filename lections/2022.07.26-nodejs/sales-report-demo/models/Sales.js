@@ -1,7 +1,7 @@
 let mongoose = require('mongoose')
 SalesSchema = new mongoose.Schema({
     itemId: String,
-    temName: String,
+    itemName: String,
     itemPrice: Number,
     itemQuantity: Number,
     totalPrice: Number,
