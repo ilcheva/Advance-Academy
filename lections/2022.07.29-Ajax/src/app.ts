@@ -43,7 +43,6 @@ interface Sales {
 //     xmlHttp.open('POST', BASE_URL);
 //     xmlHttp.setRequestHeader("Content-Type", "application/json");
 //     xmlHttp.send(JSON.stringify(sales));
-//     xmlHttp.send(JSON.stringify(sales));
 //     if (xmlHttp.status == 200) {
 //         let data = JSON.parse(xmlHttp.responseText);
 //         console.log('DATA', data);
