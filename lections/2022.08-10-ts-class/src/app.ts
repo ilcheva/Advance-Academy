@@ -176,7 +176,8 @@ interface Identity {
 }
 interface Contact {
     email: string;
-    phone: string;
+    phone?: string;
+
 }
 type EmployeeType = Identity & Contact & BusinessPartner;
 
@@ -204,8 +205,115 @@ function sum(a: numberString, b: numberString) {
 
 console.log(sum(8, 4));
 
-type myTestUnion = Contact | Identity;
-function checkMyTestUnion(x: myTestUnion){
-    /// generic types 
+class Identity {
+    id: number;
+    name: string;
+    constructor(id: number, name: string) {
+        this.id = id;
+        this.name = name;
+    }
 }
- 
+class Contact {
+    email: string;
+    phone?: string;
+    isAllowedToSmoke?: boolean
+    constructor(email: string, phone: string, isAllowedToSmoke: boolean) {
+        this.email = email;
+        this.phone = phone;
+        this.isAllowedToSmoke = isAllowedToSmoke;
+    }
+
+}
+//instanceof
+type myTestUnion = Contact | Identity;
+function checkMyTestUnion(x: myTestUnion): string {
+    let txt: string = '';
+
+    if (x instanceof Contact) {
+        txt = x.phone as string;
+
+    }
+    if (x instanceof Identity) {
+        txt = x.name
+    }
+    if ('isAllowedToSmoke' in x) {
+        txt = `${x.email} is allowed to be registerd in this web app`
+    }
+    console.log('txt is: ', txt);
+    return txt
+
+}
+let contact = new Contact('s@bla.com', '+547389547398', true)
+let identity = new Identity(3, 'blbla')
+
+checkMyTestUnion(contact)
+checkMyTestUnion(identity)
+// TYPESCRIPT GUARD
+function typeInfo(param: any): param is Identity {
+    return param instanceof Identity
+}
+
+function funNew(element: myTestUnion): string {
+    let txt: string = '';
+    typeInfo(element) ? txt = 'guard returns type Identity' : txt = 'guard returns type Contact';
+    console.log(txt);
+    return txt;
+
+}
+funNew(contact)
+
+// CASTING
+
+// let title = (document.getElementById('flash') as HTMLElement).innerHTML = 'Hello my friends';
+
+// let title = <HTMLElement>document.getElementById('flash');
+// title.innerHTML = 'Generic TYPESCRIPT!'
+
+// let x = typeX;
+//let b = <typeB>x changing type in ts
+
+// array of numbers to return random number
+// fn accept number[] and returns random number
+
+// function fetchRandomNumber(elements: number[]): number {
+//     let randomNumberIndex = Math.floor(Math.random() * elements.length);
+
+//     return elements[randomNumberIndex];
+
+// }
+// let numArray = [80, 45, 2, 10, 5, 11, 78];
+// console.log('random number: ',
+//     fetchRandomNumber(numArray)
+// )
+
+
+// function fetchRandomNumber(elements: any[]): any {
+//     let randomNumberIndex = Math.floor(Math.random() * elements.length);
+//     return elements[randomNumberIndex];
+
+// }
+// let numArray = [80, 45, 2, 10, 5, 11, 78];
+// let nameArray = ['Pesho', 'Vanyo', 'Drago']
+// console.log('random number ',
+//     fetchRandomNumber(numArray)
+
+// )
+// console.log('random name ',
+//     fetchRandomNumber(nameArray)
+
+// )
+
+function fetchRandomNumber<T>(elements:T[]):T {
+    let randomNumberIndex = Math.floor(Math.random() * elements.length);
+    return elements[randomNumberIndex];
+}
+let numArray = [80, 45, 2, 10, 5, 11, 78];
+let nameArray = ['Pesho', 'Vanyo', 'Drago']
+console.log('random number ',
+    fetchRandomNumber<number>(numArray)
+
+)
+console.log('random name ',
+    fetchRandomNumber<string>(nameArray)
+
+)
