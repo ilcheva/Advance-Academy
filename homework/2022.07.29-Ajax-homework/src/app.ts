@@ -5,7 +5,7 @@ interface Sales {
     itemName: string,
     itemPrice: number,
     itemQuantity: number,
-    totalPrice: number,
+    // totalPrice: number,
     updated: string
 }
 let itemId = document.getElementById('itemId') as HTMLInputElement,
@@ -18,6 +18,11 @@ let itemId = document.getElementById('itemId') as HTMLInputElement,
     editItemPrice = document.getElementById('editItemPrice') as HTMLInputElement,
     editItemQuantity = document.getElementById('editItemQuantity') as HTMLInputElement,
     editUpdated = document.getElementById('editItemDate') as HTMLInputElement;
+
+let result: HTMLElement = document.getElementById('result') as HTMLElement;
+let modalWrap = document.getElementById('modal') as HTMLElement;
+//@ts-ignore
+let modal = new bootstrap.Modal(modalWrap.querySelector('.modal'))
 
 // GET ALL SALES
 
@@ -32,7 +37,6 @@ fetchAllSales()
 
 
 function submitForm(e: Event) {
-
     e.preventDefault()
     let sales: Sales = {
         itemId: itemId.value,
@@ -41,7 +45,10 @@ function submitForm(e: Event) {
         itemPrice: itemPrice.value,
         //@ts-ignore
         itemQuantity: itemQuantity.value,
-        totalPrice: 0,
+        // totalPrice:function () {
+        //             return this.itemPrice * this.itemQuantity
+        //         }
+        // the server does not get data from function 
         updated: updated.value,
     }
 
@@ -56,17 +63,6 @@ function submitForm(e: Event) {
     itemPrice.value = '';
     itemQuantity.value = '';
     fetchAllSales()
-
-}
-let result: HTMLElement = document.getElementById('result') as HTMLElement;
-
-
-function createElement(element: string, classes: string, content?: any, attribute?: any, value?: any) {
-    let newElement = document.createElement(element);
-    newElement.className = classes;
-    newElement.textContent = content;
-    newElement.setAttribute(attribute, value);
-    return newElement;
 
 }
 
@@ -87,7 +83,6 @@ function showData() {
                 let itemName = createElement('li', 'list-group-item', `Name: ${element.itemName}`)
                 let itemPrice = createElement('li', 'list-group-item', `Price: ${element.itemPrice}`)
                 let itemQuantity = createElement('li', 'list-group-item', `Quantity: ${element.itemQuantity}`)
-                let totalPrice = createElement('li', 'list-group-item', `Total price: ${element.totalPrice}`)
                 let btnCont = createElement('div', 'row g-0')
                 let editBtn = createElement('button', 'btn btn-primary col ', 'Edit', 'data-key', element._id)
                 let deleteBtn = createElement('button', 'btn btn-danger col', 'Delete', 'data-key', element._id);
@@ -95,15 +90,9 @@ function showData() {
                 editBtn.addEventListener('click', showModal)
                 deleteBtn.addEventListener('click', deleteElement)
 
-                if (element.totalPrice === undefined) {
-                    totalPrice.style.display = 'none'
-                }
-
-
                 ul.appendChild(itemName)
                 ul.appendChild(itemPrice)
                 ul.appendChild(itemQuantity)
-                ul.appendChild(totalPrice)
                 card.appendChild(cardName)
                 card.appendChild(ul)
                 btnCont.appendChild(editBtn)
@@ -117,10 +106,7 @@ function showData() {
 
         .catch((err) => console.error(err))
 }
-// showData()
-let modalWrap = document.getElementById('modal')
-//@ts-ignore
-let modal = new bootstrap.Modal(modalWrap.querySelector('.modal'))
+
 function showModal(this: any, e: Event) {
     let id = this.getAttribute('data-key')
 
@@ -129,12 +115,11 @@ function showModal(this: any, e: Event) {
     patchData?.addEventListener('click', editFromModal)
 
     modal.show()
-
 }
-function editFromModal(this: any, e: Event) {
 
+function editFromModal(this: any, e: Event) {
+    e.preventDefault()
     let id = this.getAttribute('data-key')
-    console.log('editform', id);
     let editSales: Sales = {
         itemId: editItemId.value,
         itemName: editItemName.value,
@@ -142,23 +127,32 @@ function editFromModal(this: any, e: Event) {
         itemPrice: editItemPrice.value,
         //@ts-ignore
         itemQuantity: editItemQuantity.value,
-
         updated: editUpdated.value,
     }
-    // to do validation and reset the modal form
-    // if (editItemId.value !== '' && editItemName!=='') {
 
-    // }
-    fetch(`${BASE_URL}/sales/${id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(editSales)
-    })
-        .then(showData)
-        .catch((err) => console.log(err))
-    modal.hide()
+    if (editItemId.value !== '' && editItemName.value !== ''
+        && editItemPrice.value !== '' && editItemQuantity.value !== '') {
+        validation(true)
+        fetch(`${BASE_URL}/sales/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(editSales)
+        })
+            .then(showData)
+            .catch((err) => console.log(err))
+        modal.hide()
+    } else {
+        validation(false)
+    }
+    editItemId.value = '';
+    editItemName.value = '';
+    editItemPrice.value = '';
+    editItemQuantity.value = '';
+    editUpdated.value = '';
+
+
 }
 
 function deleteElement(this: any, e: Event) {
@@ -169,4 +163,28 @@ function deleteElement(this: any, e: Event) {
     })
         .then(showData)
         .catch((err) => console.error(err))
+}
+
+function validation(valid: boolean) {
+    let invalid = document.getElementsByClassName('invalid-feedback') as HTMLCollection;
+    if (valid == false) {
+        // deletes already input data 
+        Array.from(invalid as HTMLCollection).forEach(element => {
+            (element as HTMLElement).style.display = 'block'
+        })
+    } else {
+        Array.from(invalid as HTMLCollection).forEach(element => {
+            (element as HTMLElement).style.display = 'none'
+        })
+
+    }
+}
+
+function createElement(element: string, classes: string, content?: any, attribute?: any, value?: any) {
+    let newElement = document.createElement(element);
+    newElement.className = classes;
+    newElement.textContent = content;
+    newElement.setAttribute(attribute, value);
+    return newElement;
+
 }

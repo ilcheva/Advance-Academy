@@ -1,6 +1,10 @@
 "use strict";
 let BASE_URL = 'http://localhost:3000';
 let itemId = document.getElementById('itemId'), itemName = document.getElementById('itemName'), itemPrice = document.getElementById('itemPrice'), itemQuantity = document.getElementById('itemQuantity'), updated = document.getElementById('itemDate'), editItemId = document.getElementById('editItemId'), editItemName = document.getElementById('editItemName'), editItemPrice = document.getElementById('editItemPrice'), editItemQuantity = document.getElementById('editItemQuantity'), editUpdated = document.getElementById('editItemDate');
+let result = document.getElementById('result');
+let modalWrap = document.getElementById('modal');
+//@ts-ignore
+let modal = new bootstrap.Modal(modalWrap.querySelector('.modal'));
 // GET ALL SALES
 function fetchAllSales() {
     fetch(`${BASE_URL}/sales`)
@@ -18,7 +22,10 @@ function submitForm(e) {
         itemPrice: itemPrice.value,
         //@ts-ignore
         itemQuantity: itemQuantity.value,
-        totalPrice: 0,
+        // totalPrice:function () {
+        //             return this.itemPrice * this.itemQuantity
+        //         }
+        // the server does not get data from function 
         updated: updated.value,
     };
     console.log(sales);
@@ -32,14 +39,6 @@ function submitForm(e) {
     itemPrice.value = '';
     itemQuantity.value = '';
     fetchAllSales();
-}
-let result = document.getElementById('result');
-function createElement(element, classes, content, attribute, value) {
-    let newElement = document.createElement(element);
-    newElement.className = classes;
-    newElement.textContent = content;
-    newElement.setAttribute(attribute, value);
-    return newElement;
 }
 function showData() {
     if (result.innerHTML !== '') {
@@ -58,19 +57,14 @@ function showData() {
             let itemName = createElement('li', 'list-group-item', `Name: ${element.itemName}`);
             let itemPrice = createElement('li', 'list-group-item', `Price: ${element.itemPrice}`);
             let itemQuantity = createElement('li', 'list-group-item', `Quantity: ${element.itemQuantity}`);
-            let totalPrice = createElement('li', 'list-group-item', `Total price: ${element.totalPrice}`);
             let btnCont = createElement('div', 'row g-0');
             let editBtn = createElement('button', 'btn btn-primary col ', 'Edit', 'data-key', element._id);
             let deleteBtn = createElement('button', 'btn btn-danger col', 'Delete', 'data-key', element._id);
             editBtn.addEventListener('click', showModal);
             deleteBtn.addEventListener('click', deleteElement);
-            if (element.totalPrice === undefined) {
-                totalPrice.style.display = 'none';
-            }
             ul.appendChild(itemName);
             ul.appendChild(itemPrice);
             ul.appendChild(itemQuantity);
-            ul.appendChild(totalPrice);
             card.appendChild(cardName);
             card.appendChild(ul);
             btnCont.appendChild(editBtn);
@@ -82,10 +76,6 @@ function showData() {
     })
         .catch((err) => console.error(err));
 }
-// showData()
-let modalWrap = document.getElementById('modal');
-//@ts-ignore
-let modal = new bootstrap.Modal(modalWrap.querySelector('.modal'));
 function showModal(e) {
     let id = this.getAttribute('data-key');
     let patchData = document.getElementById('patchData');
@@ -94,8 +84,8 @@ function showModal(e) {
     modal.show();
 }
 function editFromModal(e) {
+    e.preventDefault();
     let id = this.getAttribute('data-key');
-    console.log('editform', id);
     let editSales = {
         itemId: editItemId.value,
         itemName: editItemName.value,
@@ -105,19 +95,28 @@ function editFromModal(e) {
         itemQuantity: editItemQuantity.value,
         updated: editUpdated.value,
     };
-    // to do validation and reset the modal form
-    // if (editItemId.value !== '' && editItemName!=='') {
-    // }
-    fetch(`${BASE_URL}/sales/${id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(editSales)
-    })
-        .then(showData)
-        .catch((err) => console.log(err));
-    modal.hide();
+    if (editItemId.value !== '' && editItemName.value !== ''
+        && editItemPrice.value !== '' && editItemQuantity.value !== '') {
+        validation(true);
+        fetch(`${BASE_URL}/sales/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(editSales)
+        })
+            .then(showData)
+            .catch((err) => console.log(err));
+        modal.hide();
+    }
+    else {
+        validation(false);
+    }
+    editItemId.value = '';
+    editItemName.value = '';
+    editItemPrice.value = '';
+    editItemQuantity.value = '';
+    editUpdated.value = '';
 }
 function deleteElement(e) {
     e.preventDefault();
@@ -127,4 +126,25 @@ function deleteElement(e) {
     })
         .then(showData)
         .catch((err) => console.error(err));
+}
+function validation(valid) {
+    let invalid = document.getElementsByClassName('invalid-feedback');
+    if (valid == false) {
+        // deletes already input data 
+        Array.from(invalid).forEach(element => {
+            element.style.display = 'block';
+        });
+    }
+    else {
+        Array.from(invalid).forEach(element => {
+            element.style.display = 'none';
+        });
+    }
+}
+function createElement(element, classes, content, attribute, value) {
+    let newElement = document.createElement(element);
+    newElement.className = classes;
+    newElement.textContent = content;
+    newElement.setAttribute(attribute, value);
+    return newElement;
 }
