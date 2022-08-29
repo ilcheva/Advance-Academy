@@ -1,3 +1,5 @@
+// import React, { useState } from "react";
+
 import React, { Component } from "react";
 import ToDoItem from "./TodoItem";
 
@@ -17,11 +19,16 @@ class ToDoList extends Component {
         );
     }
 }
-// function ToDoList(props) {
+// function ToDoList({todos,handleChangeProps,deleteTodoProps}) {
 //     return (
 //         <ul>
-//             {props.todos.map((todo) => (
-//                 <ToDoItem key={todo.id} todo={todo} />
+//             {todos.map((todo) => (
+//                 <ToDoItem
+//                     key={todo.id}
+//                     todo={todo}
+//                     handleChangeProps={handleChangeProps}
+//                     deleteTodoProps={deleteTodoProps}
+//                 />
 //             ))}
 //         </ul>
 //     );

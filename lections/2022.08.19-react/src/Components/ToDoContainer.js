@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "./Header";
 import ToDoList from "./TodoList";
+import InputTodo from "./InputTodo";
 
 class TodoContainer extends Component {
     state = {
@@ -56,12 +57,12 @@ class TodoContainer extends Component {
 
     deleteTask = (id) => {
         this.setState({
-            todos:[
-                ...this.state.todos.filter(todo=>{
-                    return todo.id !== id
-                })
-            ]
-        })
+            todos: [
+                ...this.state.todos.filter((todo) => {
+                    return todo.id !== id;
+                }),
+            ],
+        });
     };
     render() {
         return (
@@ -76,6 +77,7 @@ class TodoContainer extends Component {
             //         <input type="text" value="input field" />
             //      </div> */}
                 <Header />
+                <InputTodo />
                 <ToDoList
                     todos={this.state.todos}
                     handleChangeProps={this.handleChange}
@@ -85,36 +87,69 @@ class TodoContainer extends Component {
         );
     }
 }
-// function TodoContainer() {
-//     const state = {
-//         todos: [
-//             {
-//                 id: 1,
-//                 title: "To learn Javascript",
-//                 completed: true,
-//             },
-//             {
-//                 id: 2,
-//                 title: "To learn Typescript",
-//                 completed: false,
-//             },
-//             {
-//                 id: 3,
-//                 title: "To learn React",
-//                 completed: false,
-//             },
-//             {
-//                 id: 4,
-//                 title: "To learn PixiJs",
-//                 completed: false,
-//             },
-//         ],
+// function TodoContainer(state) {
+//     let todos = [
+//         {
+//             id: 1,
+//             title: "To learn Javascript",
+//             completed: true,
+//         },
+//         {
+//             id: 2,
+//             title: "To learn Typescript",
+//             completed: false,
+//         },
+//         {
+//             id: 3,
+//             title: "To learn React",
+//             completed: false,
+//         },
+//         {
+//             id: 4,
+//             title: "To learn PixiJs",
+//             completed: false,
+//         },
+//     ];
+
+//     const [getTodos, setTodos] = useState(() => todos);
+
+//     // const [getTodos, setDotos] = useState([todos]);
+
+//     // useEffect(() => {
+//     //     // setTodos(todos);
+//     //     // console.log(getTodos);
+//     // }, [todos]);
+//     const handleChange = (element) => {
+//         // element.completed = !element.completed;
+//         let HandledTodos = getTodos.map((todo) => {
+//             if (todo.id === element.id) {
+//                 todo.completed = !todo.completed;
+//             }
+//             return todo;
+//         });
+//         setTodos(HandledTodos);
+//     };
+//     const deleteTask = (id) => {
+//         let filtededTodos = getTodos.filter((todo) => todo.id !== id);
+//         setTodos(filtededTodos);
+//         // this.setState({
+//         //     todos: [
+//         //         ...state.todos.filter((todo) => {
+//         //             return todo.id !== id;
+//         //         }),
+//         //     ],
+//         // });
 //     };
 
 //     return (
 //         <>
 //             <Header />
-//             <ToDoList todos={state.todos} />
+//             <ToDoList
+//                 todos={getTodos}
+//                 //todos={state.todos}
+//                 handleChangeProps={handleChange}
+//                 deleteTodoProps={deleteTask}
+//             />
 //         </>
 //     );
 // }

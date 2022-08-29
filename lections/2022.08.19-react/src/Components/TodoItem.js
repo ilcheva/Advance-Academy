@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 
 class ToDoItem extends Component {
     render() {
@@ -25,12 +25,22 @@ class ToDoItem extends Component {
     }
 }
 
-// function ToDoItem(props) {
+// function ToDoItem({todo, handleChangeProps, deleteTodoProps}) {
 //     return (
-//             <li>
-//             <input type="checkbox"  checked={props.todo.completed}/>
-//                 {props.todo.title}</li>
-
+//         <li>
+//             <input
+//                 type="checkbox"
+//                 checked={todo.completed}
+//                 onChange={() => handleChangeProps(todo)}
+//             />
+//             {todo.title}
+//              <button
+//                     onClick={() =>
+//                         deleteTodoProps(todo.id)
+//                     }>
+//                     Delete
+//                 </button>
+//         </li>
 //     );
 // }
 export default ToDoItem;
