@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "./Header";
 import ToDoList from "./TodoList";
 import InputTodo from "./InputTodo";
+import { v4 as uuidv4 } from "uuid";
 
 class TodoContainer extends Component {
     state = {
@@ -64,6 +65,16 @@ class TodoContainer extends Component {
             ],
         });
     };
+    addToDoItem = (todoTitle) => {
+        const newTodoItem = {
+            id: uuidv4(),
+            title: todoTitle,
+            completed: false,
+        };
+        this.setState({
+            todos: [...this.state.todos, newTodoItem],
+        });
+    };
     render() {
         return (
             <React.Fragment>
@@ -77,7 +88,7 @@ class TodoContainer extends Component {
             //         <input type="text" value="input field" />
             //      </div> */}
                 <Header />
-                <InputTodo />
+                <InputTodo addTodo={this.addToDoItem} />
                 <ToDoList
                     todos={this.state.todos}
                     handleChangeProps={this.handleChange}
