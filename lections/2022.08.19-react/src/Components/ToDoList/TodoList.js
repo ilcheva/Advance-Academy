@@ -1,7 +1,8 @@
 // import React, { useState } from "react";
 
 import React, { Component } from "react";
-import ToDoItem from "./TodoItem";
+import ToDoItem from "../ToDoItem/TodoItem";
+import './ToDoList.css'
 
 class ToDoList extends Component {
     render() {

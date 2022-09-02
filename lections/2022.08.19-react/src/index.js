@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 // import App from "./App";
-import TodoContainer from "./Components/ToDoContainer";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import TodoContainer from "./Components/ToDoContainer/ToDoContainer";
 
 import reportWebVitals from "./reportWebVitals";
 

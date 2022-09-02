@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import Header from "./Header";
-import ToDoList from "./TodoList";
-import InputTodo from "./InputTodo";
+import Header from "../Header";
+import ToDoList from "../ToDoList/TodoList";
+import InputTodo from "../InputTodo";
 import { v4 as uuidv4 } from "uuid";
+import "./ToDoContainer.css";
 
 class TodoContainer extends Component {
     state = {
@@ -87,13 +88,18 @@ class TodoContainer extends Component {
             //         <p>I am Todo container react component</p>
             //         <input type="text" value="input field" />
             //      </div> */}
-                <Header />
-                <InputTodo addTodo={this.addToDoItem} />
-                <ToDoList
-                    todos={this.state.todos}
-                    handleChangeProps={this.handleChange}
-                    deleteTodoProps={this.deleteTask}
-                />
+                <div className="container">
+                    <div className="navbar"></div>
+                    <div className="content">
+                        <Header />
+                        <InputTodo addTodo={this.addToDoItem} />
+                        <ToDoList
+                            todos={this.state.todos}
+                            handleChangeProps={this.handleChange}
+                            deleteTodoProps={this.deleteTask}
+                        />
+                    </div>
+                </div>
             </React.Fragment>
         );
     }
