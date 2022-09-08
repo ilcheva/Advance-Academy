@@ -76,6 +76,16 @@ class TodoContainer extends Component {
             todos: [...this.state.todos, newTodoItem],
         });
     };
+    setUpdate = (updateTitle, id) => {
+        this.setState({
+            todos: this.state.todos.map((todo) => {
+                if (todo.id === id) {
+                    todo.title = updateTitle;
+                }
+                return todo.title;
+            }),
+        });
+    };
     render() {
         return (
             <React.Fragment>
@@ -97,6 +107,7 @@ class TodoContainer extends Component {
                             todos={this.state.todos}
                             handleChangeProps={this.handleChange}
                             deleteTodoProps={this.deleteTask}
+                            setUpdate={this.setUpdate}
                         />
                     </div>
                 </div>

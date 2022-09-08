@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { GrAdd } from "react-icons/gr";
 class InputTodo extends Component {
     state = {
         title: "",
@@ -26,7 +26,15 @@ class InputTodo extends Component {
                     name="title"
                     onChange={this.onChange}
                 />
-                <button type="submit">Submit</button>
+                <button type="submit">
+                    <GrAdd
+                        style={{
+                            color: "red",
+                            fontSize: "25px",
+                            margin: "10px",
+                        }}
+                    />
+                </button>
             </form>
         );
     }

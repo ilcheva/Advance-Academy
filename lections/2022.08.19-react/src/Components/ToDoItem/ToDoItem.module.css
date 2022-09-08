@@ -1,4 +1,4 @@
-li button {
+.item button {
     margin: 0 15px;
     font-size: 1.5rem;
     border: none;
@@ -7,7 +7,13 @@ li button {
     min-width: 50px;
     background-color: transparent;
 }
-li {
+.item {
     font-size: 1.2rem;
     border-bottom: 1px solid #eaeaea;
+}
+.textInput {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid#dfdfdf;
+    border-radius: 6px;
 }
