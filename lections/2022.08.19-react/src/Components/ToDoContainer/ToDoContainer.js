@@ -82,7 +82,7 @@ class TodoContainer extends Component {
                 if (todo.id === id) {
                     todo.title = updateTitle;
                 }
-                return todo.title;
+                return todo;
             }),
         });
     };
