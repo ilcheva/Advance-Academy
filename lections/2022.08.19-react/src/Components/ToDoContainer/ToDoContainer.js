@@ -4,8 +4,14 @@ import ToDoList from "../ToDoList/TodoList";
 import InputTodo from "../InputTodo";
 import { v4 as uuidv4 } from "uuid";
 import "./ToDoContainer.css";
+import NavBar from "../NavBar";
+import About from "../About";
+import Activity from "../Activity";
+import { Routes, Route } from "react-router-dom";
 
 class TodoContainer extends Component {
+    // cachedTodos = localStorage.getItem("todos");
+
     state = {
         todos: [
             {
@@ -13,27 +19,24 @@ class TodoContainer extends Component {
                 title: "To learn Javascript",
                 completed: true,
             },
-            {
-                id: 2,
-                title: "To learn Typescript",
-                completed: false,
-            },
-            {
-                id: 3,
-                title: "To learn React",
-                completed: false,
-            },
-            {
-                id: 4,
-                title: "To learn PixiJs",
-                completed: false,
-            },
+            // {
+            //     id: 2,
+            //     title: "To learn Typescript",
+            //     completed: false,
+            // },
+            // {
+            //     id: 3,
+            //     title: "To learn React",
+            //     completed: false,
+            // },
+            // {
+            //     id: 4,
+            //     title: "To learn PixiJs",
+            //     completed: false,
+            // },
         ],
     };
-    // handleChange = (element) => {
-    //     element.completed=!element.completed
-    //     console.log("I am clicked", element);
-    // };
+
     handleChange = (element) => {
         // this.setState({
         //     todos: this.state.todos.map((todo) => {
@@ -55,6 +58,7 @@ class TodoContainer extends Component {
                 return todo;
             }),
         }));
+        localStorage.setItem("todos", JSON.stringify(this.state.todos));
     };
 
     deleteTask = (id) => {
@@ -65,6 +69,7 @@ class TodoContainer extends Component {
                 }),
             ],
         });
+        localStorage.setItem("todos", JSON.stringify(this.state.todos));
     };
     addToDoItem = (todoTitle) => {
         const newTodoItem = {
@@ -75,6 +80,8 @@ class TodoContainer extends Component {
         this.setState({
             todos: [...this.state.todos, newTodoItem],
         });
+        console.log(this.state.todos);
+        localStorage.setItem("todos", JSON.stringify(this.state.todos));
     };
     setUpdate = (updateTitle, id) => {
         this.setState({
@@ -85,33 +92,49 @@ class TodoContainer extends Component {
                 return todo;
             }),
         });
+        localStorage.setItem("todos", JSON.stringify(this.state.todos));
     };
+    componentDidMount() {
+        if (!localStorage.getItem("todos")) {
+            localStorage.setItem("todos", JSON.stringify(this.state.todos));
+        }
+        let getData = JSON.parse(localStorage.getItem("todos"));
+        //     localStorage.setItem("todos", JSON.stringify(this.state.todos));
+        // // check for getData
+        this.setState({ todos: getData });
+    }
     render() {
         return (
-            <React.Fragment>
-                {/* //     it can be written with <></> --  with stric
-
-            //     <div>
-            //         <header>
-            //             <h1>Hello From my First React App</h1>
-            //         </header>
-            //         <p>I am Todo container react component</p>
-            //         <input type="text" value="input field" />
-            //      </div> */}
-                <div className="container">
-                    <div className="navbar"></div>
-                    <div className="content">
-                        <Header />
-                        <InputTodo addTodo={this.addToDoItem} />
-                        <ToDoList
-                            todos={this.state.todos}
-                            handleChangeProps={this.handleChange}
-                            deleteTodoProps={this.deleteTask}
-                            setUpdate={this.setUpdate}
-                        />
-                    </div>
+            <div className="container">
+                <div className="navbar">
+                    <NavBar />
                 </div>
-            </React.Fragment>
+                <Routes>
+                    <Route
+                        path="/"
+                        element={
+                            <>
+                                <div className="content">
+                                    <Header />
+                                    <InputTodo addTodo={this.addToDoItem} />
+                                    <ToDoList
+                                        todos={this.state.todos}
+                                        handleChangeProps={this.handleChange}
+                                        deleteTodoProps={this.deleteTask}
+                                        setUpdate={this.setUpdate}
+                                    />
+                                </div>
+                            </>
+                        }
+                    />
+                    <Route path="about">
+                        <Route index element={<About />} />
+                        <Route path="activity" element={<Activity />} />
+
+                        {/* <Route path="*" element={<TodoContainer />} /> */}
+                    </Route>
+                </Routes>
+            </div>
         );
     }
 }
