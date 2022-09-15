@@ -4,7 +4,7 @@ SalesSchema = new mongoose.Schema({
     itemName: String,
     itemPrice: Number,
     itemQuantity: Number,
-    totalPrice: Number,
+    // totalPrice: Number,
     updated: {
         type: Date,
         default: Date.now,

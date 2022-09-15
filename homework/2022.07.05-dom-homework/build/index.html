@@ -77,15 +77,11 @@
                         </div>
                     </div> -->
                 </div>
-                <div
-                    class="modal fade"
-                    id="exampleModal"
-                    tabindex="-1"
-                    aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
+                <div class="modal fade" id="modal">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
+                                Edit Contact
                                 <button
                                     type="button"
                                     class="btn-close"
@@ -93,12 +89,14 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form>
-                                    <div class="mb-3" id="userName">
-                                        fdsfds
+                                <form class="row-col-2">
+                                    <div class="mb-3">
+                                        <label for="userName">Name:</label>
+                                        <input type="text" id="userName" />
                                     </div>
-                                    <div class="mb-3" id="userPhone">
-                                        
+                                    <div class="mb-3">
+                                        <label for="userPhone">Phone:</label>
+                                        <input type="number" id="userPhone" />
                                     </div>
                                 </form>
                             </div>
@@ -110,7 +108,11 @@
                                     data-bs-dismiss="modal">
                                     Close
                                 </button>
-                                <button id="edit" type="button" class="btn btn-primary">
+                                <button
+                                    id="edit"
+                                    type="button"
+                                    class="btn btn-primary"
+                                    data-bs-dismiss="modal">
                                     Save changes
                                 </button>
                             </div>

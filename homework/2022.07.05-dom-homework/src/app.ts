@@ -53,8 +53,8 @@ let links = Array.from(document.querySelectorAll('#addressBook li a'))
 // textContent form zero from js created
 
 function globalSearch() {
-    console.log(input.value.toLowerCase());
-    console.log(links);
+    // console.log(input.value.toLowerCase());
+    // console.log(links);
 
     links.forEach((link) => {
         let textValue = link.innerHTML || link.textContent;
@@ -69,22 +69,19 @@ function addNewContact() {
     let li = document.createElement('li');
     let aLink = document.createElement('a');
     aLink.setAttribute('href', '#');
-    aLink.setAttribute('data-bs-toggle', 'modal');
-    aLink.setAttribute('data-bs-target', '#exampleModal');
-
-
-    let userName = document.getElementById('userName');
-    let userPhone = document.getElementById('userPhone');
+    aLink.setAttribute('data-toggle', "modal")
 
     let contactInput: HTMLInputElement = document.getElementById('addNewContact') as HTMLInputElement;
-    // because we are creating the text - innerHTML is not appropriate
+
 
     let content = document.createTextNode(contactInput.value)
     aLink.appendChild(content)
     li.appendChild(aLink)
+    // userName.value = contactInput.value;
     content.length !== 0 ? ul.appendChild(li) : alert('You must write a name');
     contactInput.value = '';
-    // create a button which deletes a created contact
+
+    // create a button which deletes a created contact#
     let removeContactBtn = document.createElement('button');
     removeContactBtn.appendChild(document.createTextNode('x'))
     removeContactBtn.classList.add('removeContact', 'btn', 'btn-danger', 'm-1')
@@ -100,8 +97,28 @@ function addNewContact() {
         })
     })
 
-    
 
 
+
+
+    let modal: HTMLElement, contactName: HTMLElement;
+    modal = document.getElementById("modal") as HTMLElement;
+    contactName = document.getElementById("contactName") as HTMLElement;
+    let contacts: NodeListOf<HTMLElement> = document.querySelectorAll("#addressBook li");
+
+    console.log("contacts", contacts);
+    Array.from(contacts).forEach((contact) => {
+        contact.onclick = function (e: Event) {
+            let htmlEl = e.target as HTMLElement
+            modal.style.display = "block";
+            console.log(htmlEl.textContent);
+            contactName.innerText = htmlEl.textContent;
+        };
+
+        window.onclick = (event) => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        };
+    })
 }
-// clicing on contact to open a modal
